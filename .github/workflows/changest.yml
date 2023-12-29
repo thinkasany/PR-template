@@ -27,7 +27,7 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           OWNER: thinkasany
-          REPO: test
+          REPO: PR-template
           LABEL_NAME: major
         run: |
           files=$ALL_CHANGED_FILES
@@ -81,7 +81,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           OWNER: thinkasany
-          REPO: test
+          REPO: PR-template
           LABEL_NAME: major
         run: |
             echo "Deleting label..."
