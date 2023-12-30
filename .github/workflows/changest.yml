@@ -46,9 +46,10 @@ jobs:
         if: ${{ steps.check_changeset.outputs.comment != '' }}
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'create-label'
+          actions: 'add-labels'
           token: ${{ secrets.GITHUB_TOKEN }}
-          label-name: 'major'
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'major' 
 
       - name: update status comment
         if: ${{ steps.check_changeset.outputs.comment != '' }}
@@ -83,6 +84,6 @@ jobs:
         with:
           actions: 'remove-labels'
           token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
+          issue-number: ${{ github.event.pull_request.number }}
           labels: 'major'
          
